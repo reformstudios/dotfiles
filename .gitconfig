@@ -1,0 +1,5 @@
+[core]
+	preloadindex = true
+[user]
+	email = gh@reformstudios.com
+	name = reformstudios
