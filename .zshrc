@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+export TERM="xterm-256color"
 # Path to your oh-my-zsh installation.
 export ZSH="/home/pmac/.oh-my-zsh"
 
@@ -18,14 +18,14 @@ export ZSH="/home/pmac/.oh-my-zsh"
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir) # vcs
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status node_version background_jobs history time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status node_version background_jobs history command_execution_time time)
 
 #POWERLEVEL9K_TIME_FORMAT="%D{%H:%M %m.%d.%y}"
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S}"
 POWERLEVEL9K_STATUS_VERBOSE=false
 
 #POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
-POWERLEVEL9K_NODE_VERSION_BACKGROUND='022'
+# POWERLEVEL9K_NODE_VERSION_BACKGROUND='022'
 
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
 POWERLEVEL9K_OS_ICON_BACKGROUND="white"
@@ -34,7 +34,7 @@ POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
 POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
 POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
 POWERLEVEL9K_CONTEXT_TEMPLATE="%n"
-
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
 ## set colors for LS_COLORS
 #eval `dircolors ~/.dircolors`
 eval `dircolors /mnt/c/users/pmac2/git/dircolors-solarized/dircolors.256dark`
@@ -91,11 +91,14 @@ eval `dircolors /mnt/c/users/pmac2/git/dircolors-solarized/dircolors.256dark`
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git
-  npm
-  docker
+plugins=(
+  git
+  #npm
+  #docker
   zsh-autosuggestions
-  zsh-completions)
+  zsh-syntax-highlighting
+  zsh-completions
+  )
 
 source $ZSH/oh-my-zsh.sh
 # source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -130,3 +133,24 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias config='/usr/bin/git --git-dir=/home/pmac/.cfg/ --work-tree=/home/pmac'
+alias ll='ls -alF --color -h --group-directories-first'
+alias la='ls -A --color -h --group-directories-first'
+alias l='ls -CF --color -h --group-directories-first'
+alias ls='ls --color -h --group-directories-first'
+alias ..='cd ..'
+alias cd..='cd ..'
+alias ww='cd /mnt/c/users/pmac2'
+alias c='code'
+
+export DOCKER_HOST=tcp://0.0.0.0:2375
+
+autoload bashcompinit
+bashcompinit
+
+# You may also want to source the completion script (for zsh):
+source /mnt/c/users/pmac2/software/rez/completion/complete.sh
+
+# REZ SETUP
+export PATH=/mnt/c/users/pmac2/software/rez/bin/rez:$PATH
+
+
