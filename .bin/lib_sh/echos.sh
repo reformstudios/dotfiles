@@ -20,7 +20,10 @@ function ok() {
 }
 
 function bot() {
-    echo -e "\n$COL_GREEN\[._.]/$COL_RESET - "$1
+    #echo -e "\n$COL_GREEN\[._.]/$COL_RESET - "$1
+    echo -e "\n$COL_GREEN(っ◕‿◕)っ$COL_RESET - "$1
+    # ༼ つ ◕_◕ ༽つ
+    # 
 }
 
 function running() {
