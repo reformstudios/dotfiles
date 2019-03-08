@@ -76,6 +76,8 @@ sudo yum install zsh
 bot "Installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+echo "source $HOME/.bin/.zshrc" >> .zshrc
+
 bot "Installing powerlevel"
 # git clone https://github.com/bhilburn/powerlevel9k.git ~/powerlevel9k
 cd ~
