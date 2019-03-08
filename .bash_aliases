@@ -2,7 +2,7 @@
 alias ll='ls -alF --color -h --group-directories-first'
 alias la='ls -A --color -h --group-directories-first'
 alias l='ls -CF --color -h --group-directories-first'
-alias ls='ls ---color -h --group-directories-first'
+alias ls='ls --color -h --group-directories-first'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
