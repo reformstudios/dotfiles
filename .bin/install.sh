@@ -73,7 +73,7 @@ sudo yum update
 bot "Installing zsh"
 sudo yum install zsh
 
-bot "Installing oh-my-zsh
+bot "Installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 bot "Installing powerlevel"
