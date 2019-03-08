@@ -1,6 +1,29 @@
-#!/bin/bash
 
-source ~/dotfiles/lib_sh/echos.sh
+echo "alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> .bashrc
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+echo ".cfg" >> .gitignore
+
+if [ ! -d $HOME/.cfg ]
+then
+        git clone --bare https://github.com/reformstudios/dotfiles.git $HOME/.cfg
+fi
+
+function config {
+	/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
+}
+mkdir -p .config-backup
+config checkout
+if [ $? = 0 ]; then
+	echo "Checking out config.";
+	else
+		echo "Backing up pre-existing dot files.";
+		config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
+fi;
+
+config checkout
+config config status.showUntrackedFiles no
+
+source $HOME/.bin/lib_sh/echos.sh
 
 bot "Hi! I'm going to install tooling and tweak your system settings. Here I go..."
 
@@ -42,17 +65,5 @@ if ! sudo grep -q "%wheel    ALL=(ALL) NOPASSWD: ALL ~/.sh.rc" "/etc/sudoers"; t
 
 fi
 
-#sudo yum install zsh
+sudo yum install zsh
 
-echo "alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'" >> .bashrc
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-echo ".cfg" >> .gitignore
-
-if [ ! -d $HOME/.cfg ]
-then
-	git clone --bare https://github.com/reformstudios/dotfiles.git $HOME/.cfg
-fi
-
-source .bashrc
-
-config checkout -f
