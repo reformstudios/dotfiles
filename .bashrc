@@ -120,3 +120,12 @@ if ! shopt -oq posix; then
   fi
 fi
 export DOCKER_HOST=tcp://localhost:2375
+alias config='/usr/bin/git --git-dir=/home/pmac/.cfg/ --work-tree=/home/pmac'
+alias config='/usr/bin/git --git-dir=/home/pmac/.cfg/ --work-tree=/home/pmac'
+alias config='/usr/bin/git --git-dir=/home/pmac/.cfg/ --work-tree=/home/pmac'
+alias config='/usr/bin/git --git-dir=/home/pmac/.cfg/ --work-tree=/home/pmac'
+alias config='/usr/bin/git --git-dir=/home/pmac/.cfg/ --work-tree=/home/pmac'
+alias config='/usr/bin/git --git-dir=/home/pmac/.cfg/ --work-tree=/home/pmac'
+alias config='/usr/bin/git --git-dir=/home/pmac/.cfg/ --work-tree=/home/pmac'
+alias config='/usr/bin/git --git-dir=/home/pmac/.cfg/ --work-tree=/home/pmac'
+alias config='/usr/bin/git --git-dir=/home/pmac/.cfg/ --work-tree=/home/pmac'

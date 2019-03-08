@@ -77,7 +77,17 @@ bot "Installing oh-my-zsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 bot "Installing powerlevel"
-git clone https://github.com/bhilburn/powerlevel9k.git ~/powerlevel9k
+# git clone https://github.com/bhilburn/powerlevel9k.git ~/powerlevel9k
+cd ~
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
 bot "Installing powerline fonts"
-sudo dnf install powerline-fonts
+cd ~
+git clone https://github.com/powerline/fonts.git
+cd fonts
+./install.sh
+
+
+sudo usermod -s /bin/zsh shashi
+
+source ~/.zshrc
