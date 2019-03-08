@@ -87,6 +87,10 @@ git clone https://github.com/powerline/fonts.git
 cd fonts
 ./install.sh
 
+bot "Getting dircolors"
+git clone https://github.com/seebi/dircolors-solarized.git ~/.dircolors
+
+
 sudo usermod -s /bin/zsh pmac
 
 source ~/.zshrc

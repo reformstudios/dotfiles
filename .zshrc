@@ -1,6 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM="xterm-256color"
+
 # Path to your oh-my-zsh installation.
 export ZSH="/home/pmac/.oh-my-zsh"
 
@@ -17,6 +18,7 @@ export ZSH="/home/pmac/.oh-my-zsh"
 
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
+POWERLEVEL9K_MODE="nerdfont-complete"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir) # vcs
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status node_version background_jobs history command_execution_time time)
 
@@ -35,9 +37,13 @@ POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
 POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
 POWERLEVEL9K_CONTEXT_TEMPLATE="%n"
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
+
 ## set colors for LS_COLORS
+
 #eval `dircolors ~/.dircolors`
-eval `dircolors /mnt/c/users/pmac2/git/dircolors-solarized/dircolors.256dark`
+
+eval `dircolors $HOME/.dircolors/dircolors.256dark`
+
 # eval 'dircolors /mnt/c/users/pmac2/git/9615021/bash-dircolors-monokai'
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -91,6 +97,7 @@ eval `dircolors /mnt/c/users/pmac2/git/dircolors-solarized/dircolors.256dark`
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
 plugins=(
   git
   #npm
@@ -132,15 +139,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias config='/usr/bin/git --git-dir=/home/pmac/.cfg/ --work-tree=/home/pmac'
-alias ll='ls -alF --color -h --group-directories-first'
-alias la='ls -A --color -h --group-directories-first'
-alias l='ls -CF --color -h --group-directories-first'
-alias ls='ls --color -h --group-directories-first'
-alias ..='cd ..'
-alias cd..='cd ..'
-alias ww='cd /mnt/c/users/pmac2'
-alias c='code'
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
 export DOCKER_HOST=tcp://0.0.0.0:2375
 
@@ -148,9 +150,9 @@ autoload bashcompinit
 bashcompinit
 
 # You may also want to source the completion script (for zsh):
-source /mnt/c/users/pmac2/software/rez/completion/complete.sh
+source $HOME/software/rez/completion/complete.sh
 
 # REZ SETUP
-export PATH=/mnt/c/users/pmac2/software/rez/bin/rez:$PATH
+export PATH=$HOME/software/rez/bin/rez:$PATH
 
 
