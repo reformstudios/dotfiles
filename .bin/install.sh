@@ -65,5 +65,19 @@ if ! sudo grep -q "%wheel    ALL=(ALL) NOPASSWD: ALL ~/.sh.rc" "/etc/sudoers"; t
 
 fi
 
+bot "Installing packages..."
+
+bot "Updating yum"
+sudo yum update
+
+bot "Installing zsh"
 sudo yum install zsh
 
+bot "Installing oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+bot "Installing powerlevel"
+git clone https://github.com/bhilburn/powerlevel9k.git ~/powerlevel9k
+
+bot "Installing powerline fonts"
+sudo dnf install powerline-fonts
