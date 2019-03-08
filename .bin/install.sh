@@ -87,7 +87,6 @@ git clone https://github.com/powerline/fonts.git
 cd fonts
 ./install.sh
 
-
-sudo usermod -s /bin/zsh shashi
+sudo usermod -s /bin/zsh pmac
 
 source ~/.zshrc
