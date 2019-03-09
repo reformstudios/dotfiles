@@ -12,6 +12,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias config='/usr/bin/git --git-dir=/home/pmac/.cfg/ --work-tree=/home/pmac'
 alias pconfig='config commit -a -m "Updated config"; config push origin master'
 alias uconfig='curl -fsL https://git.io/fhhYM | /bin/bash'
+alias econfig='nano ~/.bin/install.sh'
 
 # Misc other aliases
 alias ..='cd ..'

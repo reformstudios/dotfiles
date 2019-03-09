@@ -1,0 +1,44 @@
+
+echo "Installing zsh"
+sudo yum install zsh
+
+echo "Installing oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sed 's:env zsh -l::g' | sed 's:chsh -s .*$::g')"
+
+if [ ! -d $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+fi
+
+if [ ! -d $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
+	git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+fi
+
+sudo grep 'source $HOME/.bin/.zshrc' ~/.zshrc
+#if ! sudo grep -qxF 'source $HOME/.bin/.zshrc' ~/.zshrc
+#	echo "source $HOME/.bin/.zshrc" >> ~/.zshrc
+#fi
+
+echo "Installing powerlevel"
+if [ ! -d ~/.oh-my-zsh/custom/themes/powerlevel9k/ ]; then
+	# git clone https://github.com/bhilburn/powerlevel9k.git ~/powerlevel9k
+	cd ~
+	git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+fi
+
+echo "Installing powerline fonts"
+cd ~
+git clone https://github.com/powerline/fonts.git
+cd fonts
+./install.sh
+
+echo "Getting dircolors"
+
+git clone -f https://github.com/seebi/dircolors-solarized.git ~/.dircolors
+
+git clone -f https://github.com/dracula/zsh.git ~/.bin/dracula/
+
+ln -s ~/.bin/dracula/dracula.zsh-theme $OH_MY_ZSH/themes/dracula.zsh-theme
+
+# konsoleprofile colors=ColorSchemeName
+
+cd ~
